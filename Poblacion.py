@@ -9,8 +9,8 @@ poblacion_cruza_mutacion = []
 #metodo para rellenar la lista poblacion con x individuos
 def rellenar_poblacion(x):
     for i in range(x):
-        genes = []    
-        #Creo un nuevo individuo 
+        genes = []
+        #Creo un nuevo individuo
         individuo = Individuo.individuo(genes)
         individuo.rellenar_genes()
         poblacion.append(individuo)
@@ -18,9 +18,9 @@ def rellenar_poblacion(x):
 #creo una funcion para mostrar la poblacion
 def mostrar_poblacion(lista_individuos):
     for individuo in lista_individuos:
-        print(individuo.genes)  
+        print(individuo.genes)
 
-#metodo que devuelve una lista con los individuos cruzados pasando una lista de individuos ademas 
+#metodo que devuelve una lista con los individuos cruzados pasando una lista de individuos ademas
 # de una probabilidad de mutacion pasada por parametro
 def cruzar_mutar_individuos(lista_individuos, probabilidad):
     punto = secrets.randbelow(10)
