@@ -10,14 +10,10 @@ poblacion_cruza_mutacion = []
 #metodo para rellenar la lista poblacion con x individuos
 def rellenar_poblacion(x):
     for i in range(x):
-        #Declaro una lista de genes de tamaño 10 con valores entre 0 y 1
-        genes = []
-        #bucle para rellenar la lista de genes con valores 0 o 1
-        for i in range(10): 
-            random = secrets.randbelow(2)
-            genes.append(random)
-        #Creo un nuevo individuo con los genes de los padres cruzados
+        genes = []    
+        #Creo un nuevo individuo 
         individuo = Individuo.individuo(genes)
+        individuo.rellenar_genes()
         poblacion.append(individuo)
 
 #creo una funcion para mostrar la poblacion
