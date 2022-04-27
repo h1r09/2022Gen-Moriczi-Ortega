@@ -13,9 +13,8 @@ class individuo:
             random = secrets.randbelow(2)
             self.genes.append(random)
 
-    
+    #contructor de la clase individuo que recibe una lista de genes
     def __init__(self, genes):
-        #constructor de la clase
         self.genes = genes
 
     #Metodo para cruzar 2 individuos y devolver un nuevo individuo con los genes de los padres cruzados indicando el punto de cruce
@@ -39,7 +38,7 @@ class individuo:
         #Declaro una lista de genes de tamaño 10 con valores entre 0 y 1
         genes_mutacion = []
         #bucle para rellenar la lista de genes con valores 0 o 1
-        for i in range(10): 
+        for i in range(10):
             random = secrets.randbelow(2)
             if random <= probabilidad:
                 #Descoemtar siguiente linea para imprimir el gen mutado
