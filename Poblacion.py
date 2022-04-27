@@ -4,7 +4,7 @@ import Individuo
 
 poblacion = []
 #Declaro una lista de individuos que se van a cruzar y mutar
-poblacionCruzaMutacion = []
+poblacion_cruza_mutacion = []
 
 
 #metodo para rellenar la lista poblacion con x individuos
@@ -21,26 +21,26 @@ def rellenar_poblacion(x):
         poblacion.append(individuo)
 
 #creo una funcion para mostrar la poblacion
-def mostrar_poblacion(listaIndividuos):
-    for individuo in listaIndividuos:
+def mostrar_poblacion(lista_individuos):
+    for individuo in lista_individuos:
         print(individuo.genes)  
 
 #metodo que devuelve una lista con los individuos cruzados pasando una lista de individuos ademas 
 # de una probabilidad de mutacion pasada por parametro
-def cruzar_mutar_individuos(listaIndividuos, probabilidad):
+def cruzar_mutar_individuos(lista_individuos, probabilidad):
     punto = secrets.randbelow(10)
-    listaCruzaMutacion = []
+    lista_cruza_mutacion = []
     if probabilidad < 0.5:
         print("Ha habido mutación en la poblacion ")
-    for individuo in listaIndividuos:
-        random = secrets.randbelow(len(listaIndividuos))
-        individuoCruza = individuo.cruzar_punto(listaIndividuos[random], punto)
+    for individuo in lista_individuos:
+        random = secrets.randbelow(len(lista_individuos))
+        individuo_cruza = individuo.cruzar_punto(lista_individuos[random], punto)
         if probabilidad < 0.5:
-            individuoMutacion = individuoCruza.mutar(probabilidad)
-            listaCruzaMutacion.append(individuoMutacion)
+            individuo_mutacion = individuo_cruza.mutar(probabilidad)
+            lista_cruza_mutacion.append(individuo_mutacion)
         else:
-            listaCruzaMutacion.append(individuoCruza)
-    return listaCruzaMutacion
+            lista_cruza_mutacion.append(individuo_cruza)
+    return lista_cruza_mutacion
 
 
 #Pruebo el metodo de cruzarMutarIndividuos, generando una poblacion inicial de individuos.
@@ -53,9 +53,9 @@ random = secrets.randbelow(2)
 print("Población inicial:")
 mostrar_poblacion(poblacion)
 print("\n")
-poblacionCruzaMutacion = cruzar_mutar_individuos(poblacion,random)
+poblacion_cruza_mutacion = cruzar_mutar_individuos(poblacion,random)
 print("Población cruzada y mutada: ")
-mostrar_poblacion(poblacionCruzaMutacion)
+mostrar_poblacion(poblacion_cruza_mutacion)
 
 
 

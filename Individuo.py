@@ -13,32 +13,31 @@ class individuo:
         for i in range(10): 
             random = secrets.randbelow(2)
             self.genes.append(random)
-        
 
     #constructor
     def __init__(self, genes):
         self.genes = genes
         
-#Metodo para cruzar 2 individuos y devolver un nuevo individuo con los genes de los padres cruzados indicando el punto de cruce 
+    #Metodo para cruzar 2 individuos y devolver un nuevo individuo con los genes de los padres cruzados indicando el punto de cruce 
     def cruzar_punto(self, individuo2, punto):
         #Declaro una lista de genes de tamaño 10 con valores entre 0 y 1
-        genesCruza = []
+        genes_cruza = []
         #bucle para rellenar la lista de genes con valores 0 o 1
         #Descoemtar siguiente linea para imprimir el punto de cruce
         # print("Punto de cruce: " + str(punto))
         for i in range(10): 
             if i < punto:
-                genesCruza.append(self.genes[i])
+                genes_cruza.append(self.genes[i])
             else:
-                genesCruza.append(individuo2.genes[i])
+                genes_cruza.append(individuo2.genes[i])
         #Creo un nuevo individuo con los genes de los padres cruzados
-        individuoCruza = individuo(genesCruza)
-        return individuoCruza
+        individuo_cruza = individuo(genes_cruza)
+        return individuo_cruza
 
-#Metodo para mutar un individuo y devolver un nuevo individuo con uno de los genes mutados pasando una probabilidad
+    #Metodo para mutar un individuo y devolver un nuevo individuo con uno de los genes mutados pasando una probabilidad
     def mutar(self, probabilidad):
         #Declaro una lista de genes de tamaño 10 con valores entre 0 y 1
-        genesMutacion = []
+        genes_mutacion = []
         #bucle para rellenar la lista de genes con valores 0 o 1
         for i in range(10): 
             random = secrets.randbelow(2)
@@ -46,11 +45,11 @@ class individuo:
                 #Descoemtar siguiente linea para imprimir el gen mutado
                 # print("Gen mutado: " + str(i))
                 if self.genes[i] == 0:
-                    genesMutacion.append(1)
+                    genes_mutacion.append(1)
                 else:
-                    genesMutacion.append(0)
+                    genes_mutacion.append(0)
             else:
-                genesMutacion.append(self.genes[i])
+                genes_mutacion.append(self.genes[i])
         #Creo un nuevo individuo con los genes de los padres cruzados
-        individuoMutacion = individuo(genesMutacion)
-        return individuoMutacion
+        individuo_mutacion = individuo(genes_mutacion)
+        return individuo_mutacion
