@@ -5,7 +5,7 @@ Este proyecto consiste en analizar la calidad del código a a través de 2 plata
 - SonarCloud
 
 Se ha desarollado un programa en python que viene a ser un pequeño algoritmo genético en el que se siguen los siguientes pasos:
-- Se establece una poblalción de X individuos que pasamos por parámetro.
+- Se establece una población de X individuos que pasamos por parámetro.
 - Esta población puede cruzarse, por tanto, aleatoriamente se cruzan los individuos de una población indicada.
 - En el proceos de cruce se selecciona aleatoriamente qué genes se heredan de cada progenitor.
 - Además, mediante una probabilidad indicada, este individuo fruto del cruce puede sufrir mutaciones en algún gen de manera aleatoria.
