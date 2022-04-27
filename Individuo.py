@@ -13,8 +13,9 @@ class individuo:
             random = secrets.randbelow(2)
             self.genes.append(random)
 
-    #constructor
+    
     def __init__(self, genes):
+        #constructor de la clase
         self.genes = genes
 
     #Metodo para cruzar 2 individuos y devolver un nuevo individuo con los genes de los padres cruzados indicando el punto de cruce
