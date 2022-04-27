@@ -1,5 +1,6 @@
 from array import array
 import random
+import secrets
 class individuo:
 #atributos de cada individuo de la poblacion de la generacion actual
  
@@ -8,10 +9,13 @@ class individuo:
    
 
     #bucle para rellenar la lista de genes con valores 0 o 1
-    
+    # Se hace uso de secret() para generar un numero aleatorio entre 0 y 1 
+    # ya que segun sonarcloud no se puede usar random.randint por seguridad
+
     def rellenarGenes(self):
         for i in range(10): 
-            self.genes.append(random.randint(0,1))
+            random = secrets.randbelow(2)
+            self.genes.append(random)
         
 
     #constructor
@@ -39,7 +43,8 @@ class individuo:
         genesCruza = []
         #bucle para rellenar la lista de genes con valores 0 o 1
         for i in range(10): 
-            if random.randint(0,1) == 0:
+            random = secrets.randbelow(2)
+            if random == 0:
                 genesCruza.append(self.genes[i])
             else:
                 genesCruza.append(individuo2.genes[i])
@@ -54,7 +59,8 @@ class individuo:
         genesMutacion = []
         #bucle para rellenar la lista de genes con valores 0 o 1
         for i in range(10): 
-            if random.random() < probabilidad:
+            random = secrets.randbelow(2)
+            if random < probabilidad:
                 if self.genes[i] == 0:
                     genesMutacion.append(1)
                     print("Se ha mutado el gen " + str(i) + " a 1")
