@@ -8,7 +8,7 @@ poblacionCruzaMutacion = []
 
 
 #metodo para rellenar la lista poblacion con x individuos
-def rellenarPoblacion(x):
+def rellenar_poblacion(x):
     for i in range(x):
         #Declaro una lista de genes de tamaño 10 con valores entre 0 y 1
         genes = []
@@ -21,30 +21,20 @@ def rellenarPoblacion(x):
         poblacion.append(individuo)
 
 #creo una funcion para mostrar la poblacion
-def mostrarPoblacion(listaIndividuos):
+def mostrar_poblacion(listaIndividuos):
     for individuo in listaIndividuos:
         print(individuo.genes)  
 
-#metodo que devuelve una lista con los individuos cruzados pasando una lista de individuos
-def cruzarIndividuos(listaIndividuos):
-    listaCruza = []
-    for individuo in listaIndividuos:
-        random = secrets.randbelow(len(listaIndividuos))
-        individuoCruza = individuo.cruzar(listaIndividuos[random])
-        
-        listaCruza.append(individuoCruza)
-    return listaCruza
-
-
 #metodo que devuelve una lista con los individuos cruzados pasando una lista de individuos ademas 
 # de una probabilidad de mutacion pasada por parametro
-def cruzarMutarIndividuos(listaIndividuos, probabilidad):
+def cruzar_mutar_individuos(listaIndividuos, probabilidad):
+    punto = secrets.randbelow(10)
     listaCruzaMutacion = []
     if probabilidad < 0.5:
         print("Ha habido mutación en la poblacion ")
     for individuo in listaIndividuos:
         random = secrets.randbelow(len(listaIndividuos))
-        individuoCruza = individuo.cruzar(listaIndividuos[random])
+        individuoCruza = individuo.cruzar_punto(listaIndividuos[random], punto)
         if probabilidad < 0.5:
             individuoMutacion = individuoCruza.mutar(probabilidad)
             listaCruzaMutacion.append(individuoMutacion)
@@ -56,16 +46,16 @@ def cruzarMutarIndividuos(listaIndividuos, probabilidad):
 #Pruebo el metodo de cruzarMutarIndividuos, generando una poblacion inicial de individuos.
 #Luego genero una lista con los individuos cruzados y mutados aleatoriamente
 #muestro la poblacion inicial y la poblacion cruzada y mutada
-rellenarPoblacion(10)
+rellenar_poblacion(10)
 random = secrets.randbelow(2)
 
 
 print("Población inicial:")
-mostrarPoblacion(poblacion)
+mostrar_poblacion(poblacion)
 print("\n")
-poblacionCruzaMutacion = cruzarMutarIndividuos(poblacion,random)
+poblacionCruzaMutacion = cruzar_mutar_individuos(poblacion,random)
 print("Población cruzada y mutada: ")
-mostrarPoblacion(poblacionCruzaMutacion)
+mostrar_poblacion(poblacionCruzaMutacion)
 
 
 
