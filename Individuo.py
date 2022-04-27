@@ -24,7 +24,7 @@ class individuo:
         #bucle para rellenar la lista de genes con valores 0 o 1
         #Descoemtar siguiente linea para imprimir el punto de cruce
         # print("Punto de cruce: " + str(punto))
-        for i in range(10): 
+        for i in range(10):
             if i < punto:
                 genes_cruza.append(self.genes[i])
             else:
