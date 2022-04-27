@@ -1,10 +1,9 @@
-from array import array
 import secrets
 class individuo:
- 
+
     #Declaro una lista de genes de tamaño 10 con valores entre 0 y 1
     genes = []
-   
+
     #bucle para rellenar la lista de genes con valores 0 o 1
     # Se hace uso de secret() para generar un numero aleatorio entre 0 y 1 
     # ya que segun sonarcloud no se puede usar random.randint por seguridad
@@ -17,7 +16,7 @@ class individuo:
     #constructor
     def __init__(self, genes):
         self.genes = genes
-        
+  
     #Metodo para cruzar 2 individuos y devolver un nuevo individuo con los genes de los padres cruzados indicando el punto de cruce 
     def cruzar_punto(self, individuo2, punto):
         #Declaro una lista de genes de tamaño 10 con valores entre 0 y 1
