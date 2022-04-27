@@ -1,5 +1,4 @@
 from array import array
-import random
 import secrets
 class individuo:
 #atributos de cada individuo de la poblacion de la generacion actual
@@ -27,6 +26,7 @@ class individuo:
         #Declaro una lista de genes de tamaño 10 con valores entre 0 y 1
         genesCruza = []
         #bucle para rellenar la lista de genes con valores 0 o 1
+        print("Punto de cruce: " + str(punto))
         for i in range(10): 
             if i < punto:
                 genesCruza.append(self.genes[i])
@@ -60,15 +60,14 @@ class individuo:
         #bucle para rellenar la lista de genes con valores 0 o 1
         for i in range(10): 
             random = secrets.randbelow(2)
-            if random < probabilidad:
+            if random <= probabilidad:
+                #Descoemtar siguiente linea para imprimir el gen mutado
+                # print("Gen mutado: " + str(i))
                 if self.genes[i] == 0:
                     genesMutacion.append(1)
-                    print("Se ha mutado el gen " + str(i) + " a 1")
                 else:
-                    print("Se ha mutado el gen " + str(i) + " a 0")
                     genesMutacion.append(0)
             else:
-                print("No se ha mutado el gen " + str(i))
                 genesMutacion.append(self.genes[i])
         #Creo un nuevo individuo con los genes de los padres cruzados
         individuoMutacion = individuo(genesMutacion)
@@ -76,23 +75,19 @@ class individuo:
     
 
 #creo un individuo con los genes aleatorios generados y lo imprimo
-individuo1 = individuo([])
-individuo1.rellenarGenes()
-print(individuo1.genes)
+# individuo1 = individuo([])
+# individuo1.rellenarGenes()
+# print(individuo1.genes)
 
-individuo2 = individuo([])
-individuo2.rellenarGenes()
-print(individuo2.genes)
+# individuo2 = individuo([])
+# individuo2.rellenarGenes()
+# print(individuo2.genes)
 
+# puntoCruce = secrets.randbelow(10)
+# individuoCruzado2 = individuo1.cruzarPunto(individuo2, puntoCruce)
+# print(individuoCruzado2.genes)
 
-# individuoCruzado = individuo1.cruzar(individuo2)
-# print(individuoCruzado.genes)
+# individuoMutado = individuo1.mutar(0.2)
 
-individuoCruzado2 = individuo1.cruzarPunto(individuo2, 5)
-print(individuoCruzado2.genes)
-
-
-individuoMutado = individuo1.mutar(0.2)
-
-print(individuoMutado.genes)
+# print(individuoMutado.genes)
 
